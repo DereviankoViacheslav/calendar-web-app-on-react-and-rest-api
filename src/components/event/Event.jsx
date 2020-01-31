@@ -1,4 +1,5 @@
 import React from 'react';
+import './Event.scss';
 import moment from 'moment';
 
 function getStyle(event) {
@@ -8,7 +9,7 @@ function getStyle(event) {
   const endEvent = moment(event.endDate);
   const diffMinutes = endEvent.diff(startEvent, 'minutes');
   const top = startEvent.diff(startDay, 'minutes');
-  
+
   return {
     backgroundColor: `${event.color}`,
     top: `${top * heightOneMinute}px`,
@@ -16,9 +17,9 @@ function getStyle(event) {
   };
 }
 
-function Event({ event }) {
+function Event({ event, onShowPopup }) {
   return (
-    <div data-id-event="3" className="day-event" style={getStyle(event)}>
+    <div onClick={(e) => onShowPopup(e, event)} className="day-event" style={getStyle(event)}>
       <div className="day-event__title">{event.name}</div>
       <span>{`${moment(event.startDate).format('HH:mm')} - ${moment(event.endDate).format('HH:mm')}`}</span>
     </div>

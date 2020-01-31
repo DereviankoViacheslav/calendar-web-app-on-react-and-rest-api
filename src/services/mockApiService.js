@@ -1,7 +1,7 @@
 export default class MockApiService {
   baseUrl = 'http://5e300c25576f9d0014d63ac2.mockapi.io/api/v1/listEvents';
 
-  restApi = async (method, task, id) => {
+  restApi = async (method, event, id) => {
     let url = this.baseUrl;
     let configObjectMethod = {};
   
@@ -14,14 +14,14 @@ export default class MockApiService {
         configObjectMethod = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json;charset=utf-8', },
-          body: JSON.stringify(task),
+          body: JSON.stringify(event),
         };
         break;
       case 'PUT':
         configObjectMethod = {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json;charset=utf-8', },
-          body: JSON.stringify(task),
+          body: JSON.stringify(event),
         };
         url += `/${id}`;
         break;
@@ -39,7 +39,7 @@ export default class MockApiService {
     return await this.restApi();
   };
 
-  addEvent = async (...event) => {
+  addEvent = async (event) => {
     return await this.restApi('POST', event);
   }
 
@@ -47,9 +47,9 @@ export default class MockApiService {
     return await this.restApi('DELETE', null, id);
   }
 
-  editEvent = async (newEvent) => {
-    const events = await this.getResource();
-    const oldEvent = events.find((e) => e.id === newEvent.id);
+  editEvent = async (newEvent, id) => {
+    const events = await this.getEvents();
+    const oldEvent = events.find((e) => e.id === id);
     const event = { ...oldEvent, ...newEvent };
     return await this.restApi('PUT', event, event.id);
   }

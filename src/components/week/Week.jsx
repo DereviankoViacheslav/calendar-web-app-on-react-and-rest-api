@@ -10,10 +10,13 @@ function getEventsOfDay(events, date) {
   });
 }
 
-function Week({ dates, listEvents }) {
-  const days = dates.map((date) => {
-    const events = getEventsOfDay(listEvents, date);
-    return <Day key={date} date={date} events={events} />;
+function Week({ date, listEvents, onShowPopup }) {
+  let nextDay = moment(date).format('YYYY-MM-DD');
+  const days = [...new Array(7)].map(() => {
+    const events = getEventsOfDay(listEvents, nextDay);
+    const dayElem = <Day key={nextDay} date={nextDay} events={events} onShowPopup={onShowPopup} />;
+    nextDay = moment(nextDay).add('days', 1).format('YYYY-MM-DD');
+    return dayElem;
   });
 
   return (

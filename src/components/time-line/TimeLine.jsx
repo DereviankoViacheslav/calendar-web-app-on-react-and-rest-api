@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimeLine.scss';
 import moment from 'moment';
 
 function getStyle() {

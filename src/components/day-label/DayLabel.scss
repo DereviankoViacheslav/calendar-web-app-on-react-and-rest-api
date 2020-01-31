@@ -1,0 +1,49 @@
+.week {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: 80px;
+  z-index: 99;
+  padding-left: 60px;
+  border-bottom: 1px solid #d5d5d5;
+  background-color: white;
+}
+
+.day {
+  position: relative;
+  flex-grow: 1;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  &_nameDay {
+    font-size: 18px;
+    opacity: 0.5;
+  }
+
+  &_numberDay {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    margin-top: 5px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+  }
+}
+
+.LittleBorder {
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+  border-left: 1px solid #d5d5d5;
+}
+
+.today {
+  background-color: royalblue;
+  color: white;
+}

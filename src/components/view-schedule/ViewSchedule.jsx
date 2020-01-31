@@ -1,15 +1,16 @@
 import React from 'react';
+import './ViewSchedule.scss';
 import Sidebar from '../sidebar'
 import Week from '../week';
 import DayLabel from '../day-label';
 
-function ViewSchedule({ dates, listEvents }) {
+function ViewSchedule({ date, listEvents, onShowPopup }) {
   return (
     <>
-      <DayLabel dates={dates} />
+      <DayLabel date={date} />
       <div className="schedule">
         <Sidebar />
-        <Week listEvents={listEvents} dates={dates} />
+        <Week listEvents={listEvents} date={date} onShowPopup={onShowPopup} />
       </div>
     </>
   );

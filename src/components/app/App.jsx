@@ -4,19 +4,13 @@ import Header from '../header'
 import ViewSchedule from '../view-schedule';
 import Popup from '../popup';
 import MockApiService from '../../services/mockApiService';
+import moment from 'moment';
 
 class App extends React.Component {
   state = {
-    dates: [
-      '2020-01-27',
-      '2020-01-28',
-      '2020-01-29',
-      '2020-01-30',
-      '2020-01-31',
-      '2020-02-01',
-      '2020-02-02',
-    ],
-    listEvents: []
+    firstDayOfWeek: moment().day(1),
+    listEvents: [],
+    dataPoupComponent: null
   };
   mockApiService = new MockApiService();
 
@@ -31,39 +25,81 @@ class App extends React.Component {
       });
   }
 
-  // onCreate = (text) => {
-  // const patern = {
-  //   name: 'Event 1',
-  //   createDate: '2020-01-29T07:00:00.000Z',
-  //   startDate: '2020-01-29T07:00:00.000Z',
-  //   endDate: '2020-01-29T11:15:00.000Z',
-  //   description: 'description text',
-  //   color: '#f14141',
-  // }
-  //   this.mockApiService.addEvent(text)
-  //     .then(() => this.fetchListEvents());
-  // }
+  onCreateEvent = (event) => {
+    this.mockApiService.addEvent(event)
+      .then(() => this.fetchListEvents());
+  }
 
-  // onDelete = (taskId) => {
-  //   this.mockApiService.deleteEvent(taskId)
-  //     .then(() => this.fetchListEvents());
-  // }
+  onDeleteEvent = (id) => {
+    this.mockApiService.deleteEvent(id)
+      .then(() => this.fetchListEvents());
+  }
 
-  // onEdit = (taskId) => {
-  //   this.mockApiService.editEvent(taskId)
-  //     .then(() => this.fetchListEvents());
-  // }
+  onEditEvent = (event, id) => {
+    this.mockApiService.editEvent(event, id)
+      .then(() => this.fetchListEvents());
+  }
+
+  goNextWeek = () => {
+    this.setState((state) => {
+      return { firstDayOfWeek: moment(state.firstDayOfWeek).add('days', 7) }
+    });
+  }
+
+  goPrevWeek = () => {
+    this.setState((state) => {
+      return { firstDayOfWeek: moment(state.firstDayOfWeek).subtract('days', 7) }
+    });
+  }
+
+  goToday = () => {
+    this.setState((state) => {
+      return { firstDayOfWeek: moment().day(1) }
+    });
+  }
+
+  onShowPopup = (e, event, date) => {
+    e.stopPropagation();
+    this.setState({ dataPoupComponent: event || date ? { event, date } : {} });
+  }
+
+  onClosePopup = () => {
+    this.setState((state) => ({ dataPoupComponent: null }));
+  }
+
+  handleSubmit = (event, id) => {
+    if (id) {
+      this.onEditEvent(event, id);
+      return;
+    }
+    this.onCreateEvent(event);
+  }
 
   render() {
-    const { dates, listEvents } = this.state;
+    const { firstDayOfWeek, listEvents } = this.state;
 
     return (
       <>
-        <Header />
+        <Header
+          date={firstDayOfWeek}
+          goToday={this.goToday}
+          goNextWeek={this.goNextWeek}
+          goPrevWeek={this.goPrevWeek}
+          onShowPopup={this.onShowPopup}
+        />
         <main className="main">
-          <ViewSchedule listEvents={listEvents} dates={dates} />
+          <ViewSchedule
+            listEvents={listEvents}
+            date={firstDayOfWeek}
+            onShowPopup={this.onShowPopup}
+          />
         </main>
-        <Popup />
+        {this.state.dataPoupComponent && <Popup
+          onClosePopup={this.onClosePopup}
+          onDeleteEvent={this.onDeleteEvent}
+          handleSubmit={this.handleSubmit}
+          {...this.state.dataPoupComponent}
+        />}
       </>
     );
   }
