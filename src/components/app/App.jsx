@@ -4,6 +4,7 @@ import Header from '../header'
 import ViewSchedule from '../view-schedule';
 import Popup from '../popup';
 import MockApiService from '../../services/mockApiService';
+import validator from '../../validator/validator';
 import moment from 'moment';
 
 class App extends React.Component {
@@ -31,12 +32,13 @@ class App extends React.Component {
   }
 
   onDeleteEvent = (id) => {
+    this.onClosePopup();
     this.mockApiService.deleteEvent(id)
       .then(() => this.fetchListEvents());
   }
 
-  onEditEvent = (event, id) => {
-    this.mockApiService.editEvent(event, id)
+  onEditEvent = (event) => {
+    this.mockApiService.editEvent(event)
       .then(() => this.fetchListEvents());
   }
 
@@ -53,9 +55,7 @@ class App extends React.Component {
   }
 
   goToday = () => {
-    this.setState((state) => {
-      return { firstDayOfWeek: moment().day(1) }
-    });
+    this.setState({ firstDayOfWeek: moment().day(1) });
   }
 
   onShowPopup = (e, event, date) => {
@@ -67,12 +67,14 @@ class App extends React.Component {
     this.setState((state) => ({ dataPoupComponent: null }));
   }
 
-  handleSubmit = (event, id) => {
-    if (id) {
-      this.onEditEvent(event, id);
-      return;
+  handleSubmit = (event) => {
+    if (!validator(this.state.listEvents, event)) return;
+    if (event.id) {
+      this.onEditEvent(event);
+    } else {
+      this.onCreateEvent(event);
     }
-    this.onCreateEvent(event);
+    this.onClosePopup();
   }
 
   render() {

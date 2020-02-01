@@ -2,22 +2,22 @@ import React from 'react';
 import './TimeLine.scss';
 import moment from 'moment';
 
-function getStyle() {
+function getTop() {
   const heightOneMinute = (42 / 60);
   const now = moment();
   const startDay = moment().format('YYYY-MM-DD');
   const diffMinutes = now.diff(startDay, 'minutes');
-  return { top: `${diffMinutes * heightOneMinute}px` }
+  return diffMinutes * heightOneMinute;
 }
 
 class TimeLine extends React.Component {
   state = {
-    style: getStyle(),
+    top: getTop(),
   }
 
   componentDidMount() {
     this.intervalId = setInterval(() => {
-      this.setState({ currentTime: getStyle() })
+      this.setState({ top: getTop() });
     }, 60000);
   }
 
@@ -27,7 +27,7 @@ class TimeLine extends React.Component {
 
   render() {
     return (
-      <div className="time-line" style={this.state.style} />
+      <div className="time-line" style={{ top: this.state.top }} />
     );
   }
 }

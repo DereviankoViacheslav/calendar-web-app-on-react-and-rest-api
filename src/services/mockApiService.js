@@ -4,7 +4,7 @@ export default class MockApiService {
   restApi = async (method, event, id) => {
     let url = this.baseUrl;
     let configObjectMethod = {};
-  
+
     switch (method) {
       case 'DELETE':
         configObjectMethod = { method: 'DELETE' };
@@ -29,7 +29,7 @@ export default class MockApiService {
         configObjectMethod = null;
         break;
     }
-  
+
     const res = await fetch(url, configObjectMethod);
     if (res.ok) return await res.json();
     throw new Error(`Could not fetch, received ${res.status}`);
@@ -47,7 +47,7 @@ export default class MockApiService {
     return await this.restApi('DELETE', null, id);
   }
 
-  editEvent = async (newEvent, id) => {
+  editEvent = async ({ id, ...newEvent }) => {
     const events = await this.getEvents();
     const oldEvent = events.find((e) => e.id === id);
     const event = { ...oldEvent, ...newEvent };

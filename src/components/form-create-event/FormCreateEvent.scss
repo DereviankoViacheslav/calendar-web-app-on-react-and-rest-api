@@ -1,0 +1,152 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px 16px 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  z-index: 9999;
+
+  &__picker {
+    display: flex;
+    margin: 45px 0;
+    align-items: center;
+  }
+
+  &__picker-icon {
+    margin-left: 20px;
+  }
+
+  &__color-picker {
+    margin: 45px 0 0 20px;
+    text-align: left;
+  }
+
+  &__color-picker_label-text {
+    margin-right: 15px;
+    margin-left: 20px;
+  }
+
+  &__description {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  &__btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+}
+
+.event {
+
+  &__name {
+    border: none;
+    border-bottom: 2px solid #d5d5d5;
+    width: 79%;
+    font-size: 20px;
+    letter-spacing: 2px;
+    outline: none;
+    margin-top: 30px;
+    margin-left: 55px;
+  }
+
+  &__color-picker {
+    cursor: pointer;
+  }
+
+  &__date-start,
+  &__date-end {
+    padding: 2px;
+    margin-left: 18px;
+    border: none;
+    background-size: contain;
+    outline: none;
+    width: 150px;
+  }
+
+  &__time-start,
+  &__time-end {
+    border: none;
+    background-size: contain;
+    outline: none;
+    padding: 2px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &__description {
+    height: 49px;
+    width: 90%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+  }
+
+  &__btn-save {
+    position: absolute;
+    right: 5px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: royalblue;
+    color: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &__btn-delete {
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}
+
+.footer-popup {
+  position: relative;
+  height: 40px;
+  display: flex;
+}
+
+.clock {
+  width: 25px;
+  height: 25px;
+}
+
+.line {
+  left: 237px;
+  width: 8px;
+  margin: 0 5px;
+  border-top: 2px solid black;
+}
+
+.multilineText {
+  position: absolute;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.close {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.bascket {
+  cursor: pointer;
+}
+
+.invalid {
+  border: 1px solid red;
+}

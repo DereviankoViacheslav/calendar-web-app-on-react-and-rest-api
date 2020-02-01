@@ -1,16 +1,18 @@
 import React from 'react';
 import './Popup.scss';
+import FormCreateEvent from '../form-create-event';
 import moment from 'moment';
 
 class Popup extends React.Component {
   state = {
     name: '',
     startDate: moment().format('YYYY-MM-DD'),
-    startTime: moment().format('HH:mm'),
+    startTime: `${moment().add('hours', 1).format('HH')}:00`,
     endDate: moment().format('YYYY-MM-DD'),
-    endTime: moment().add('hours', 1).format('HH:mm'),
+    endTime: `${moment().add('hours', 2).format('HH')}:00`,
     description: '',
     color: '#4183f1',
+    isShowTrashIcon: false
   }
 
   componentDidMount() {
@@ -18,7 +20,9 @@ class Popup extends React.Component {
     if (date) {
       this.setState({
         startDate: moment(date).format('YYYY-MM-DD'),
-        endDate: moment(date).format('YYYY-MM-DD')
+        startTime: moment(date).format('HH:mm'),
+        endDate: moment(date).format('YYYY-MM-DD'),
+        endTime: moment(date).add('hours', 1).format('HH:mm'),
       });
     }
     if (event) {
@@ -29,7 +33,8 @@ class Popup extends React.Component {
         endDate: moment(event.endDate).format('YYYY-MM-DD'),
         endTime: moment(event.endDate).format('HH:mm'),
         description: event.description,
-        color: event.color
+        color: event.color,
+        isShowTrashIcon: true
       });
     }
   }
@@ -57,89 +62,20 @@ class Popup extends React.Component {
       color,
       name,
     };
-    const id = this.props.event ? this.props.event.id : null;
-    this.props.handleSubmit(event, id);
+    if (this.props.event) event.id = this.props.event.id;
+    this.props.handleSubmit(event);
   }
 
   render() {
-    const { onClosePopup } = this.props;
-    const { name, color, startDate, startTime, endDate, endTime, description } = this.state;
-
     return (
       <div className="popup-background">
-        <div onClick={onClosePopup} className="popup-layer">
-        </div>
-        <form onSubmit={this.handleSubmit} className="popup event">
-          <span onClick={onClosePopup} className="popup__btn-close">X</span>
-          <input
-            className="event__name"
-            name="name" type="text"
-            required
-            placeholder="Add title "
-            value={name}
-            onChange={this.onChange}
-          />
-          <div className="popup__color-picker">
-            <label className="popup__color-picker_label">
-              <span className="popup__color-picker_label-text">Select a color</span>
-              <input
-                className="event__color-picker"
-                type="color"
-                name="color"
-                value={color}
-                onChange={this.onChange}
-              />
-            </label>
-          </div>
-          <div className="popup__picker">
-            <input
-              className="event__date-start"
-              name="startDate"
-              required
-              type="date"
-              value={startDate}
-              onChange={this.onChange}
-            />
-            <input
-              className="event__time-start select"
-              name="startTime"
-              required
-              type="time"
-              step="900"
-              value={startTime}
-              onChange={this.onChange}
-            />
-            <span className="line"></span>
-            <input
-              className="event__time-end select"
-              name="endTime"
-              required
-              type="time"
-              step="900"
-              value={endTime}
-              onChange={this.onChange}
-            />
-            <input
-              className="event__date-end"
-              name="endDate"
-              required
-              type="date"
-              value={endDate}
-              onChange={this.onChange}
-            />
-          </div>
-          <textarea
-            className="event__description"
-            name="description"
-            placeholder="Add description"
-            value={description}
-            onChange={this.onChange}
-          />
-          <div className="footer-popup">
-            <span onClick={this.onDeleteEvent} className="event__btn-delete">bascket</span>
-            <button className="event__btn-save">Save</button>
-          </div>
-        </form>
+        <div onClick={this.props.onClosePopup} className="popup-layer" />
+        <FormCreateEvent {...this.state}
+          onDeleteEvent={this.onDeleteEvent}
+          handleSubmit={this.handleSubmit}
+          onClosePopup={this.props.onClosePopup}
+          onChange={this.onChange}
+        />
       </div>
     );
   }
