@@ -1,5 +1,6 @@
 import React from 'react';
 import './FormCreateEvent.scss';
+import PropTypes from 'prop-types';
 
 function FormCreateEvent(props) {
   return (
@@ -25,7 +26,7 @@ function FormCreateEvent(props) {
           value={props.startDate} onChange={props.onChange} />
         <input name="startTime" required className="event__time-start select" type="time" step="900"
           value={props.startTime} onChange={props.onChange} />
-        <span className="line"></span>
+        <span className="decor-dash"></span>
         <input name="endTime" required className="event__time-end select" type="time" step="900"
           value={props.endTime} onChange={props.onChange} />
         <input name="endDate" required className="event__date-end" type="date"
@@ -45,6 +46,26 @@ function FormCreateEvent(props) {
       </div>
     </form>
   );
+}
+
+FormCreateEvent.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  onClosePopup: PropTypes.func.isRequired,
+  onDeleteEvent: PropTypes.func.isRequired,
+  startDate: PropTypes.string.isRequired,
+  startTime: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  isShowTrashIcon: PropTypes.bool.isRequired,
+}
+
+FormCreateEvent.defaultProps = {
+  name: '',
+  description: '',
 }
 
 export default FormCreateEvent;

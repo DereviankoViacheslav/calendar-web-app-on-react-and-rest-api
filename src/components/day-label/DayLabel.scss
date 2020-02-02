@@ -1,4 +1,4 @@
-.week {
+.labels {
   position: fixed;
   width: 100%;
   display: flex;
@@ -9,7 +9,7 @@
   background-color: white;
 }
 
-.day {
+.label-day {
   position: relative;
   flex-grow: 1;
   height: 90px;
@@ -18,12 +18,12 @@
   justify-content: center;
   text-align: center;
 
-  &_nameDay {
+  &__title {
     font-size: 18px;
     opacity: 0.5;
   }
 
-  &_numberDay {
+  &__date {
     width: 40px;
     height: 40px;
     align-self: center;
@@ -35,7 +35,7 @@
   }
 }
 
-.LittleBorder {
+.decor-line {
   position: absolute;
   bottom: 0;
   height: 20px;

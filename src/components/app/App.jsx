@@ -1,5 +1,5 @@
-import './App.scss';
 import React from 'react';
+import './App.scss';
 import Header from '../header'
 import ViewSchedule from '../view-schedule';
 import Popup from '../popup';
@@ -7,9 +7,16 @@ import MockApiService from '../../services/mockApiService';
 import validator from '../../validator/validator';
 import moment from 'moment';
 
+moment.updateLocale('en', {
+  week: {
+      dow: 1,
+      doy: 4
+   }
+});
+
 class App extends React.Component {
   state = {
-    firstDayOfWeek: moment().day(1),
+    firstDayOfWeek: moment().startOf('week'),
     listEvents: [],
     dataPoupComponent: null
   };
@@ -55,7 +62,7 @@ class App extends React.Component {
   }
 
   goToday = () => {
-    this.setState({ firstDayOfWeek: moment().day(1) });
+    this.setState({ firstDayOfWeek: moment().startOf('week') });
   }
 
   onShowPopup = (e, event, date) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Event.scss';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 function getStyle(event) {
   const heightOneMinute = (42 / 60);
@@ -24,6 +25,15 @@ function Event({ event, onShowPopup }) {
       <span>{`${moment(event.startDate).format('HH:mm')} - ${moment(event.endDate).format('HH:mm')}`}</span>
     </div>
   );
+}
+
+Event.propTypes = {
+  event: PropTypes.object.isRequired,
+  onShowPopup: PropTypes.func.isRequired,
+}
+
+Event.defaultProps = {
+  title: 'Default title',
 }
 
 export default Event;

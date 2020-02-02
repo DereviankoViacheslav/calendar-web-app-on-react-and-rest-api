@@ -2,6 +2,7 @@ import React from 'react';
 import './Popup.scss';
 import FormCreateEvent from '../form-create-event';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class Popup extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class Popup extends React.Component {
     color: '#4183f1',
     isShowTrashIcon: false
   }
-
+  
   componentDidMount() {
     const { event, date } = this.props;
     if (date) {
@@ -42,13 +43,13 @@ class Popup extends React.Component {
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
-
+  
   onDeleteEvent = () => {
     if (this.props.event) {
       this.props.onDeleteEvent(this.props.event.id)
     }
   }
-
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, color, startDate, startTime, endDate, endTime, description } = this.state;
@@ -68,17 +69,29 @@ class Popup extends React.Component {
 
   render() {
     return (
-      <div className="popup-background">
+      <div className="popup-container">
         <div onClick={this.props.onClosePopup} className="popup-layer" />
         <FormCreateEvent {...this.state}
           onDeleteEvent={this.onDeleteEvent}
           handleSubmit={this.handleSubmit}
           onClosePopup={this.props.onClosePopup}
           onChange={this.onChange}
-        />
+          />
       </div>
     );
   }
+}
+
+Popup.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onClosePopup: PropTypes.func.isRequired,
+  onDeleteEvent: PropTypes.func.isRequired,
+  event: PropTypes.object,
+  date: PropTypes.string,
+}
+
+Popup.defaultProps = {
+  date: '',
 }
 
 export default Popup;

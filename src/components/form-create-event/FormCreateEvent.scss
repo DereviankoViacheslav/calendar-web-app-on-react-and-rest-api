@@ -37,7 +37,18 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
     cursor: pointer;
+
+    &:hover {
+      background-color: #D3D3D3;
+      transition: .2s;
+    }
   }
 }
 
@@ -105,9 +116,19 @@
   }
 
   &__btn-delete {
-    height: 20px;
-    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    margin-left: 10px;
+    border-radius: 50%;
     cursor: pointer;
+
+    &:hover {
+      background-color: #D3D3D3;
+      transition: .2s;
+    }
   }
 }
 
@@ -117,36 +138,9 @@
   display: flex;
 }
 
-.clock {
-  width: 25px;
-  height: 25px;
-}
-
-.line {
+.decor-dash {
   left: 237px;
   width: 8px;
   margin: 0 5px;
   border-top: 2px solid black;
-}
-
-.multilineText {
-  position: absolute;
-  left: 20px;
-  width: 30px;
-  height: 30px;
-}
-
-.close {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.bascket {
-  cursor: pointer;
-}
-
-.invalid {
-  border: 1px solid red;
 }

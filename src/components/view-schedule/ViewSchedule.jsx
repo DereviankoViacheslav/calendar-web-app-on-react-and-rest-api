@@ -3,6 +3,7 @@ import './ViewSchedule.scss';
 import Sidebar from '../sidebar'
 import Week from '../week';
 import DayLabel from '../day-label';
+import PropTypes from 'prop-types';
 
 function ViewSchedule({ date, listEvents, onShowPopup }) {
   return (
@@ -14,6 +15,16 @@ function ViewSchedule({ date, listEvents, onShowPopup }) {
       </div>
     </>
   );
+}
+
+ViewSchedule.propTypes = {
+  onShowPopup: PropTypes.func.isRequired,
+  listEvents: PropTypes.array,
+  date: PropTypes.object.isRequired,
+}
+
+ViewSchedule.defaultProps = {
+  listEvents: [],
 }
 
 export default ViewSchedule;

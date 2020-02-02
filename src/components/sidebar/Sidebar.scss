@@ -1,0 +1,19 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  color: #70757a;
+
+  :first-child .hour__text {
+    display: none;
+  }
+}
+
+.hour {
+  height: 42px;
+  width: 55px;
+
+  &__text {
+    display: block;
+    margin: -9px 0 0 10px;
+  }
+}

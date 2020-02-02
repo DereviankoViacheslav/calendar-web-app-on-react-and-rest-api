@@ -1,0 +1,10 @@
+.week {
+  display: flex;
+  width: 100%;
+  padding-left: 5px;
+  background: repeating-linear-gradient(180deg,
+      #dadce0,
+      #dadce0 1px,
+      #fff 1px,
+      #fff 42px);
+}

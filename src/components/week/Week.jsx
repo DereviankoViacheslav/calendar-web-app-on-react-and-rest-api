@@ -1,6 +1,8 @@
 import React from 'react';
+import './Week.scss';
 import Day from '../day';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 function getEventsOfDay(events, date) {
   return events.filter((event) => {
@@ -20,10 +22,20 @@ function Week({ date, listEvents, onShowPopup }) {
   });
 
   return (
-    <div className="days">
+    <div className="week">
       {days}
     </div>
   );
+}
+
+Week.propTypes = {
+  onShowPopup: PropTypes.func.isRequired,
+  listEvents: PropTypes.array,
+  date: PropTypes.object.isRequired,
+}
+
+Week.defaultProps = {
+  listEvents: [],
 }
 
 export default Week;
