@@ -1,6 +1,6 @@
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
-# [Calendar](https://dereviankoviacheslav.github.io/calendar-web-app/dist/index.html)
+# [Calendar](https://dereviankoviacheslav.github.io/calendar-web-app-on-react-and-rest-api/)
 
 ### QUICK START
 In the project directory, you can run:

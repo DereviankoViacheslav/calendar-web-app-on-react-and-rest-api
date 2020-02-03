@@ -1,5 +1,5 @@
 export default class MockApiService {
-  baseUrl = 'http://5e300c25576f9d0014d63ac2.mockapi.io/api/v1/listEvents';
+  baseUrl = 'https://5e300c25576f9d0014d63ac2.mockapi.io/api/v1/listEvents';
 
   restApi = async (method, event, id) => {
     let url = this.baseUrl;
