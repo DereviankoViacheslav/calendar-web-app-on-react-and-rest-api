@@ -3,8 +3,8 @@ import './Event.scss';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
-function getStyle(event) {
-  const heightOneMinute = (42 / 60);
+function getStyle(event, heigthHour) {
+  const heightOneMinute = heigthHour / 60;
   const startDay = moment(event.startDate).format('YYYY-MM-DD');
   const startEvent = moment(event.startDate);
   const endEvent = moment(event.endDate);
@@ -18,9 +18,12 @@ function getStyle(event) {
   };
 }
 
-function Event({ event, onShowPopup }) {
+function Event({ event, onShowPopup, heigthHour }) {
   return (
-    <div onClick={(e) => onShowPopup(e, event)} className="day-event" style={getStyle(event)}>
+    <div onClick={(e) => onShowPopup(e, event)}
+      className="day-event"
+      style={getStyle(event, heigthHour)}
+    >
       <div className="day-event__title">{event.name}</div>
       <span>{`${moment(event.startDate).format('HH:mm')} - ${moment(event.endDate).format('HH:mm')}`}</span>
     </div>
@@ -30,6 +33,7 @@ function Event({ event, onShowPopup }) {
 Event.propTypes = {
   event: PropTypes.object.isRequired,
   onShowPopup: PropTypes.func.isRequired,
+  heigthHour: PropTypes.number.isRequired,
 }
 
 Event.defaultProps = {

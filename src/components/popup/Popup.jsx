@@ -53,8 +53,9 @@ class Popup extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, color, startDate, startTime, endDate, endTime, description } = this.state;
-    const startDateResult = moment(startDate + 'T' + startTime).format();
-    const endDateResult = moment(endDate + 'T' + endTime).format();
+    const isEndDay = endTime === '00:00';
+    const startDateResult = moment(`${startDate}T${startTime}`).format();
+    const endDateResult = moment(`${endDate}T${isEndDay ? '23:59' : endTime}`).format();
     const event = {
       createDate: moment().format(),
       startDate: startDateResult,

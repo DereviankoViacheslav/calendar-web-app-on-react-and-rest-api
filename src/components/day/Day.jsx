@@ -37,13 +37,15 @@ class Day extends React.Component {
 
   render() {
     const eventsList = this.props.events.map((event) => {
-      return <Event key={event.id} event={event} onShowPopup={this.props.onShowPopup} />;
+      return <Event key={event.id} event={event}
+        onShowPopup={this.props.onShowPopup}
+        heigthHour={HEIGTH_HOUR} />;
     });
 
     return (
       <div onClick={this.handleClick} className="column-day">
         {eventsList}
-        {isToday(this.props.date) && <TimeLine heigthHour={HEIGTH_HOUR}/>}
+        {isToday(this.props.date) && <TimeLine heigthHour={HEIGTH_HOUR} />}
       </div>
     );
   }
