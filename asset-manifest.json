@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/calendar-web-app-on-react-and-rest-api/static/css/main.a3642a03.chunk.css",
+    "main.js": "/calendar-web-app-on-react-and-rest-api/static/js/main.900349c0.chunk.js",
+    "main.js.map": "/calendar-web-app-on-react-and-rest-api/static/js/main.900349c0.chunk.js.map",
+    "runtime-main.js": "/calendar-web-app-on-react-and-rest-api/static/js/runtime-main.963bc207.js",
+    "runtime-main.js.map": "/calendar-web-app-on-react-and-rest-api/static/js/runtime-main.963bc207.js.map",
+    "static/js/2.771b562e.chunk.js": "/calendar-web-app-on-react-and-rest-api/static/js/2.771b562e.chunk.js",
+    "static/js/2.771b562e.chunk.js.map": "/calendar-web-app-on-react-and-rest-api/static/js/2.771b562e.chunk.js.map",
+    "index.html": "/calendar-web-app-on-react-and-rest-api/index.html",
+    "precache-manifest.8f9c603cb930fda241a956ce36ec03f5.js": "/calendar-web-app-on-react-and-rest-api/precache-manifest.8f9c603cb930fda241a956ce36ec03f5.js",
+    "service-worker.js": "/calendar-web-app-on-react-and-rest-api/service-worker.js",
+    "static/css/main.a3642a03.chunk.css.map": "/calendar-web-app-on-react-and-rest-api/static/css/main.a3642a03.chunk.css.map",
+    "static/js/2.771b562e.chunk.js.LICENSE": "/calendar-web-app-on-react-and-rest-api/static/js/2.771b562e.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.963bc207.js",
+    "static/js/2.771b562e.chunk.js",
+    "static/css/main.a3642a03.chunk.css",
+    "static/js/main.900349c0.chunk.js"
+  ]
+}
