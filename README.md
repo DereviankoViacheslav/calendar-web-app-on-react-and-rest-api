@@ -34,4 +34,4 @@ The tech stack is:
 - [ReactJS](https://reactjs.org/)
 
 ### Author
-- Derevianko Viacheslav
+- [Derevianko Viacheslav](https://github.com/DereviankoViacheslav)
