@@ -7,6 +7,8 @@ import MockApiService from '../../services/mockApiService';
 import validator from '../../validator/validator';
 import moment from 'moment';
 
+const mockApiService = new MockApiService();
+
 moment.updateLocale('en', {
   week: {
       dow: 1,
@@ -20,32 +22,31 @@ class App extends React.Component {
     listEvents: [],
     dataPoupComponent: null
   };
-  mockApiService = new MockApiService();
 
   componentDidMount() {
     this.fetchListEvents();
   }
 
   fetchListEvents = () => {
-    this.mockApiService.getEvents()
+    mockApiService.getEvents()
       .then(listEvents => {
         this.setState({ listEvents });
       });
   }
 
   onCreateEvent = (event) => {
-    this.mockApiService.addEvent(event)
+    mockApiService.addEvent(event)
       .then(() => this.fetchListEvents());
   }
 
   onDeleteEvent = (id) => {
     this.onClosePopup();
-    this.mockApiService.deleteEvent(id)
+    mockApiService.deleteEvent(id)
       .then(() => this.fetchListEvents());
   }
 
   onEditEvent = (event) => {
-    this.mockApiService.editEvent(event)
+    mockApiService.editEvent(event)
       .then(() => this.fetchListEvents());
   }
 
