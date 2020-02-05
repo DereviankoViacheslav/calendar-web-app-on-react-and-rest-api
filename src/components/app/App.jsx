@@ -11,9 +11,9 @@ const mockApiService = new MockApiService();
 
 moment.updateLocale('en', {
   week: {
-      dow: 1,
-      doy: 4
-   }
+    dow: 1,
+    doy: 4
+  }
 });
 
 class App extends React.Component {
