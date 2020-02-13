@@ -87,6 +87,7 @@ class App extends React.Component {
 
   render() {
     const { firstDayOfWeek, listEvents } = this.state;
+    // console.log(firstDayOfWeek);
 
     return (
       <>

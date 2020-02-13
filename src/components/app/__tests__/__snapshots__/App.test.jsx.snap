@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render page 1`] = `
+<Fragment>
+  <Header
+    date={"2020-02-11T22:00:00.000Z"}
+    goNextWeek={[Function]}
+    goPrevWeek={[Function]}
+    goToday={[Function]}
+    onShowPopup={[Function]}
+  />
+  <main
+    className="main"
+  >
+    <ViewSchedule
+      date={"2020-02-11T22:00:00.000Z"}
+      listEvents={Array []}
+      onShowPopup={[Function]}
+    />
+  </main>
+</Fragment>
+`;
