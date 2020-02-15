@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ViewSchedule /> Get snapshot 1`] = `
+<Fragment>
+  <DayLabel
+    date={Object {}}
+  />
+  <div
+    className="schedule"
+  >
+    <Sidebar />
+    <Week
+      date={Object {}}
+      listEvents={Array []}
+      onShowPopup={[MockFunction]}
+    />
+  </div>
+</Fragment>
+`;

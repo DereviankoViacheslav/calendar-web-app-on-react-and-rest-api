@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Event /> Get snapshot 1`] = `
+<div
+  className="day-event"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ff6c00",
+      "height": "168px",
+      "top": "493.49999999999994px",
+    }
+  }
+>
+  <div
+    className="day-event__title"
+  >
+    Event 1111
+  </div>
+  <span>
+    11:45 - 15:45
+  </span>
+</div>
+`;

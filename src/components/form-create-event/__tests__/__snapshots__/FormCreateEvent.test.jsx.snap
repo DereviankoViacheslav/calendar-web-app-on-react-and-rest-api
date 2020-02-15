@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormCreateEvent /> Get snapshot 1`] = `
+<form
+  className="popup event"
+  onSubmit={[MockFunction]}
+>
+  <span
+    className="popup__btn-close"
+    onClick={[MockFunction]}
+  >
+    <i
+      className="fas fa-times"
+    />
+  </span>
+  <input
+    className="event__name"
+    name="name"
+    onChange={[MockFunction]}
+    placeholder="Add title "
+    required={true}
+    type="text"
+    value="Test event"
+  />
+  <div
+    className="popup__color-picker"
+  >
+    <i
+      className="fas fa-palette"
+    />
+    <label
+      className="popup__color-picker_label"
+    >
+      <span
+        className="popup__color-picker_label-text"
+      >
+        Select a color
+      </span>
+      <input
+        className="event__color-picker"
+        name="color"
+        onChange={[MockFunction]}
+        type="color"
+        value="#4183f1"
+      />
+    </label>
+  </div>
+  <div
+    className="popup__picker"
+  >
+    <span
+      className="popup__picker-icon"
+    >
+      <i
+        className="far fa-clock"
+      />
+    </span>
+    <input
+      className="event__date-start"
+      name="startDate"
+      onChange={[MockFunction]}
+      required={true}
+      type="date"
+      value="2020-02-12"
+    />
+    <input
+      className="event__time-start select"
+      name="startTime"
+      onChange={[MockFunction]}
+      required={true}
+      step="900"
+      type="time"
+      value="12:00"
+    />
+    <span
+      className="decor-dash"
+    />
+    <input
+      className="event__time-end select"
+      name="endTime"
+      onChange={[MockFunction]}
+      required={true}
+      step="900"
+      type="time"
+      value="14:00"
+    />
+    <input
+      className="event__date-end"
+      name="endDate"
+      onChange={[MockFunction]}
+      required={true}
+      type="date"
+      value="2020-02-12"
+    />
+  </div>
+  <div
+    className="popup__description"
+  >
+    <i
+      className="fas fa-align-left"
+    />
+    <textarea
+      className="event__description"
+      name="description"
+      onChange={[MockFunction]}
+      placeholder="Add description"
+      value="Test description"
+    />
+  </div>
+  <div
+    className="footer-popup"
+  >
+    <span
+      className="event__btn-delete"
+      onClick={[MockFunction]}
+    >
+      <i
+        className="fas fa-trash-alt"
+      />
+    </span>
+    <button
+      className="event__btn-save"
+    >
+      Save
+    </button>
+  </div>
+</form>
+`;

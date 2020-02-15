@@ -8,9 +8,9 @@ class Popup extends React.Component {
   state = {
     name: '',
     startDate: moment().format('YYYY-MM-DD'),
-    startTime: `${moment().add('hours', 1).format('HH')}:00`,
+    startTime: `${moment().add(1, 'hours').format('HH')}:00`,
     endDate: moment().format('YYYY-MM-DD'),
-    endTime: `${moment().add('hours', 2).format('HH')}:00`,
+    endTime: `${moment().add(2, 'hours').format('HH')}:00`,
     description: '',
     color: '#4183f1',
     isShowTrashIcon: false
@@ -23,7 +23,7 @@ class Popup extends React.Component {
         startDate: moment(date).format('YYYY-MM-DD'),
         startTime: moment(date).format('HH:mm'),
         endDate: moment(date).format('YYYY-MM-DD'),
-        endTime: moment(date).add('hours', 1).format('HH:mm'),
+        endTime: moment(date).add(1, 'hours').format('HH:mm'),
       });
     }
     if (event) {

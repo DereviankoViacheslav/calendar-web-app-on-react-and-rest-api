@@ -36,8 +36,4 @@ Event.propTypes = {
   heigthHour: PropTypes.number.isRequired,
 }
 
-Event.defaultProps = {
-  title: 'Default title',
-}
-
 export default Event;

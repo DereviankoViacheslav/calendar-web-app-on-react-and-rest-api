@@ -15,7 +15,7 @@ class DayLabel extends React.PureComponent {
           <div className={`label-day__date${todayStyle}`}>{moment(nextDay).format('DD')}</div>
           <div className="decor-line"></div>
         </div>);
-      nextDay = moment(nextDay).add('days', 1).format('YYYY-MM-DD');
+      nextDay = moment(nextDay).add(1, 'days').format('YYYY-MM-DD');
       return labelElem;
     });
     

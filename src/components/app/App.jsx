@@ -52,7 +52,7 @@ class App extends React.Component {
 
   goNextWeek = () => {
     this.setState((state) => {
-      return { firstDayOfWeek: moment(state.firstDayOfWeek).add('days', 7) }
+      return { firstDayOfWeek: moment(state.firstDayOfWeek).add(7, 'days') }
     });
   }
 
@@ -87,7 +87,6 @@ class App extends React.Component {
 
   render() {
     const { firstDayOfWeek, listEvents } = this.state;
-    // console.log(firstDayOfWeek);
 
     return (
       <>

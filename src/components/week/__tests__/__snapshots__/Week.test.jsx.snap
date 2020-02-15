@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Week /> Get snapshot 1`] = `
+<div
+  className="week"
+>
+  <Day
+    date="2020-02-15"
+    events={Array []}
+    key="2020-02-15"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-16"
+    events={Array []}
+    key="2020-02-16"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-17"
+    events={Array []}
+    key="2020-02-17"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-18"
+    events={Array []}
+    key="2020-02-18"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-19"
+    events={Array []}
+    key="2020-02-19"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-20"
+    events={Array []}
+    key="2020-02-20"
+    onShowPopup={[MockFunction]}
+  />
+  <Day
+    date="2020-02-21"
+    events={Array []}
+    key="2020-02-21"
+    onShowPopup={[MockFunction]}
+  />
+</div>
+`;

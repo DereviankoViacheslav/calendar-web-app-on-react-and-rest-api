@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Get snapshot 1`] = `
+<header
+  className="header"
+>
+  <nav
+    className="navigate"
+  >
+    <button
+      className="navigate__btn-create"
+      onClick={[Function]}
+    >
+      <svg
+        height="36"
+        viewBox="0 0 36 36"
+        width="36"
+      >
+        <path
+          d="M16 16v14h4V20z"
+          fill="#34A853"
+        />
+        <path
+          d="M30 16H20l-4 4h14z"
+          fill="#4285F4"
+        />
+        <path
+          d="M6 16v4h10l4-4z"
+          fill="#FBBC05"
+        />
+        <path
+          d="M20 16V6h-4v14z"
+          fill="#EA4335"
+        />
+        <path
+          d="M0 0h36v36H0z"
+          fill="none"
+        />
+      </svg>
+      Create
+    </button>
+    <button
+      className="navigate__btn-today"
+      onClick={[MockFunction]}
+    >
+      Today
+    </button>
+    <div
+      className="navigate__arows"
+    >
+      <div
+        className="navigate__arows_left"
+        onClick={[MockFunction]}
+      />
+      <div
+        className="navigate__arows_right"
+        onClick={[MockFunction]}
+      />
+    </div>
+    <div
+      className="navigate__title"
+    >
+      Feb   2020
+    </div>
+  </nav>
+</header>
+`;

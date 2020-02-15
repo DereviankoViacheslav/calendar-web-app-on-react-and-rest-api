@@ -7,8 +7,8 @@ function getTitle(date) {
   const day = moment(date);
   const startNameMonth = day.format('MMM');
   const startNameYear = day.format('YYYY');
-  const lastNameMonth = moment(day).add('days', 6).format('MMM');
-  const lastNameYear = moment(day).add('days', 6).format('YYYY');
+  const lastNameMonth = moment(day).add(6, 'days').format('MMM');
+  const lastNameYear = moment(day).add(6, 'days').format('YYYY');
   const year = startNameYear !== lastNameYear ? startNameYear : '';
   const month = startNameMonth !== lastNameMonth ? '- ' + lastNameMonth : '';
   return `${startNameMonth} ${year} ${month} ${lastNameYear}`;

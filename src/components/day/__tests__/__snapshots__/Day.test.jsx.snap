@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> Get snapshot 1`] = `
+<div
+  className="column-day"
+  onClick={[Function]}
+/>
+`;

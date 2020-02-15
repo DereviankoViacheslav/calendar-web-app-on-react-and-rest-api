@@ -17,7 +17,7 @@ function Week({ date, listEvents, onShowPopup }) {
   const days = [...new Array(7)].map(() => {
     const events = getEventsOfDay(listEvents, nextDay);
     const dayElem = <Day key={nextDay} date={nextDay} events={events} onShowPopup={onShowPopup} />;
-    nextDay = moment(nextDay).add('days', 1).format('YYYY-MM-DD');
+    nextDay = moment(nextDay).add(1, 'days').format('YYYY-MM-DD');
     return dayElem;
   });
 

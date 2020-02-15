@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Popup /> Get snapshot 1`] = `
+<div
+  className="popup-container"
+>
+  <div
+    className="popup-layer"
+    onClick={[MockFunction]}
+  />
+  <FormCreateEvent
+    color="#4183f1"
+    description=""
+    endDate="2020-02-12"
+    endTime="02:00"
+    handleSubmit={[Function]}
+    isShowTrashIcon={false}
+    name=""
+    onChange={[Function]}
+    onClosePopup={[MockFunction]}
+    onDeleteEvent={[Function]}
+    startDate="2020-02-12"
+    startTime="01:00"
+  />
+</div>
+`;
